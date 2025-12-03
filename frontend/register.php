@@ -16,7 +16,7 @@
     <!-- Kirjautumislomake, joka lähettää tiedot login.php:lle POST-metodilla -->
     <div class="vasen-paneeli">
     <h2>Jatka rekisteröitymällä!</h2>
-    <p>Luo tili ja koe morderni budjetin seuranta</p>
+    <p>Luo tili ja koe moderni budjetin seuranta</p>
     </div>
     <div class="oikea-paneeli">
  <form action="login.php" method="post">
