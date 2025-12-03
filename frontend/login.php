@@ -14,6 +14,11 @@
 
 <div class="container">
     <!-- Kirjautumislomake, joka lähettää tiedot login.php:lle POST-metodilla -->
+    <div class="vasen-paneeli">
+    <h2> Tervetuloa takaisin! </h2>
+    <p>Kirjaudu sisään jatkaaksesi</p>
+    </div>
+    <div class="oikea-paneeli">
  <form action="login.php" method="post">
         <!-- Lomakkeen otsikko -->
         <h2>Kirjaudu sisään</h2>
@@ -44,6 +49,7 @@
         <br><br>
 
     </form>
+    </div>
 </div>
 </body>
 </html>
