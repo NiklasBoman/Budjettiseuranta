@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="../frontend/assets/style.css">
 </head>
 <body>
-
+ 
 <div class="container">
     <!-- Kirjautumislomake, joka lähettää tiedot login.php:lle POST-metodilla -->
     <div class="vasen-paneeli">
@@ -47,9 +47,17 @@
         <!-- Kirjautumispainike -->
         <button type="submit">Kirjaudu</button>
         <br><br>
-
     </form>
     </div>
 </div>
+<div class="Lumi-maa"></div>
+   <div class="lumi">
+        <div class="snowflake lumihiutale1">❅</div>
+        <div class="snowflake lumihiutale2">❆</div>
+        <div class="snowflake lumihiutale3">❅</div>
+        <div class="snowflake lumihiutale4">❅</div>
+        <div class="snowflake lumihiutale5">❆</div>
+        <div class="snowflake lumihiutale6">❅</div>
+    </div>
 </body>
 </html>
