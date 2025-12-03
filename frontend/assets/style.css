@@ -17,6 +17,14 @@ body {
         border-radius: 10px;
         overflow: hidden;
     }
+    .joululakki {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  z-index: 2;
+}
     .vasen-paneeli{
         flex: 1;
         background: linear-gradient(to bottom right, #ed2f2f, #8dd2f1);
@@ -79,7 +87,6 @@ body {
         background-color: #2d3033;
         transform: scale(1.01);
     }
-    
     
     a {
         align-self: flex-end;

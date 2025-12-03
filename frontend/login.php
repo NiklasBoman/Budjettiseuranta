@@ -13,6 +13,7 @@
 <body>
  
 <div class="container">
+    <img src="joululakki.png" alt="Joululakki" class="joululakki">
     <!-- Kirjautumislomake, joka lähettää tiedot login.php:lle POST-metodilla -->
     <div class="vasen-paneeli">
     <h2> Tervetuloa takaisin! </h2>

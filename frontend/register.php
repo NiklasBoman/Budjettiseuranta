@@ -41,6 +41,15 @@
     </form>
     </div>
 </div>
+<div class="Lumi-maa"></div>
+   <div class="lumi">
+        <div class="snowflake lumihiutale1">❅</div>
+        <div class="snowflake lumihiutale2">❆</div>
+        <div class="snowflake lumihiutale3">❅</div>
+        <div class="snowflake lumihiutale4">❅</div>
+        <div class="snowflake lumihiutale5">❆</div>
+        <div class="snowflake lumihiutale6">❅</div>
+    </div>
 </body>
 </html>
 
