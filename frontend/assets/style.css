@@ -27,6 +27,12 @@ body {
   transform: rotate(-35deg);
   z-index: 999;
 }
+.jolly-alarm {
+    width: 100%;
+    max-width: 410px;
+    height: 471px;
+    border-radius: 0px 0px 0px 30px;
+}
     .vasen-paneeli{
         flex: 1;
         background: linear-gradient(to bottom right, #ed2f2f, #8dd2f1);
