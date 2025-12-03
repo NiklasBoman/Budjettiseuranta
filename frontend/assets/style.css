@@ -8,22 +8,24 @@ body {
     background-color: #f8f9fa;; 
     background: linear-gradient(rgb(115 114 237 / 66%), rgb(255 166 166 / 53%));
 }
-    .container {
-        z-index: 1;
-        display: flex;
-        width: 80%;
-        max-width: 900px;
-        height: 600px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    .joululakki {
+.container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 80%;
+  max-width: 900px;
+  height: 600px;
+  border-radius: 10px;
+  overflow: visible;
+}
+
+.joululakki {
   position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  z-index: 2;
+  top: -65px;
+  left: -125px;
+  width: 300px;
+  transform: rotate(-35deg);
+  z-index: 999;
 }
     .vasen-paneeli{
         flex: 1;
