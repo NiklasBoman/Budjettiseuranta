@@ -1,6 +1,5 @@
 # Budjettiseuranta
 ---
-# Projektityö
 
 ## ✨ Ominaisuudet
 - 🔐 Käyttäjän kirjautuminen  
