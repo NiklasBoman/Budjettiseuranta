@@ -59,6 +59,9 @@
         <div class="snowflake lumihiutale4">❅</div>
         <div class="snowflake lumihiutale5">❆</div>
         <div class="snowflake lumihiutale6">❅</div>
+        <div class="snowflake lumihiutale7">❅</div>
+        <div class="snowflake lumihiutale8">❅</div>
+        <div class="snowflake lumihiutale9">❅</div>
     </div>
 </body>
 </html>
