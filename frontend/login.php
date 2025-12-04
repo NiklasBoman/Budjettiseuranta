@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $salasana = $_POST['salasana'] ?? '';
 
     // Valmistellaan kysely
-    $stmt = $conn->prepare("SELECT userid, name, gmail, salasanahash, status FROM users WHERE gmail = ?");
+    $stmt = $conn->prepare("SELECT userid, name, email, passwordhash, status FROM users WHERE email = ?");
     $stmt->bind_param("s", $gmail);
     $stmt->execute();
     $stmt->store_result();
