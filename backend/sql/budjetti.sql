@@ -95,7 +95,7 @@ ALTER TABLE `tapahtumat`
 COMMIT;
 
 INSERT INTO `users` (`name`, `email`, `passwordhash`, `status`) VALUES
-('Topi Topi', 'topi@gmail.com', '$$2y$10$tL6xJZphXPrTuZQgR4P5e.L.WX3hWW.2Q5hefbvAl8MhtKJpg63JW', 'active');
+('Topi Topi', 'topi@gmail.com', '$2y$10$tL6xJZphXPrTuZQgR4P5e.L.WX3hWW.2Q5hefbvAl8MhtKJpg63JW', 'active');
 
 ALTER TABLE users MODIFY status VARCHAR(50) NOT NULL DEFAULT 'active';
 
