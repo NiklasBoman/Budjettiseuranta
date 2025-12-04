@@ -1,6 +1,7 @@
 <?php
-    session_start();
+session_start();
 include '../backend/db.php'; // Yhteys tietokantaan
+
 $error = "";
 
 // Käsitellään lomakkeen lähetys
@@ -11,41 +12,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $virheet = [];
 
+    // Tarkistetaan, että kaikki kentät on täytetty
     if (empty($nimi) || empty($gmail) || empty($salasana)) {
-        $virheet[] = "Kaikki kentät ovat pakollisia."; //Tarkistetaan että kaikki kentät on täytetty
+        $virheet[] = "Kaikki kentät ovat pakollisia.";
     }
 
-    if (!empty($gmail) && !filter_var($gmail, FILTER_VALIDATE_EMAIL)) { 
-        $virheet[] = "Sähköposti ei ole kelvollinen."; //Sähköpostin validointi
+    // Sähköpostin validointi
+    if (!empty($gmail) && !filter_var($gmail, FILTER_VALIDATE_EMAIL)) {
+        $virheet[] = "Sähköposti ei ole kelvollinen.";
     }
 
+    // Tarkistetaan onko sähköposti jo rekisteröity
     if (empty($virheet)) {
-        $stmt_check = $conn->prepare("SELECT userid FROM users WHERE email = ?"); 
-        $stmt_check->bind_param("s", $gmail);
-        $stmt_check->execute();
-        $stmt_check->store_result();
-
-        if ($stmt_check->num_rows > 0) {
-            $virheet[] = "Sähköposti on jo käytössä. Valitse toinen."; //Tarkistetaan onko sähköposti jo rekisteröity
-        }
-        $stmt_check->close();
-    }
-
-    if (empty($virheet)) {
-        $hash = password_hash($salasana, PASSWORD_DEFAULT); //Salasanan hashaus
-
-        $stmt = $conn->prepare("INSERT INTO users (name, email, passwordhash) VALUES (?, ?, ?)"); //Käyttäjän lisääminen tietokantaan
-        $stmt->bind_param("sss", $nimi, $gmail, $hash);
-        if ($stmt->execute()) {
-            $_SESSION['success_message'] = "Rekisteröinti onnistui! Voit nyt kirjautua sisään."; //Ilmoitus onnistuneesta rekisteröinnistä
-            header("Location: login.php");
-            exit;
+        $stmt_check = $conn->prepare("SELECT userid FROM users WHERE email = ?");
+        if (!$stmt_check) {
+            $virheet[] = "Tietokantavirhe: " . $conn->error;
         } else {
-            $virheet[] = "Rekisteröinti epäonnistui. Yritä uudelleen."; //Virheilmoitus jos rekisteröinti epäonnistuu
+            $stmt_check->bind_param("s", $gmail);
+            $stmt_check->execute();
+            $stmt_check->store_result();
+
+            if ($stmt_check->num_rows > 0) {
+                $virheet[] = "Sähköposti on jo käytössä. Valitse toinen.";
+            }
+            $stmt_check->close();
+        }
+    }
+
+    // Lisätään käyttäjä tietokantaan
+    if (empty($virheet)) {
+        $hash = password_hash($salasana, PASSWORD_DEFAULT);
+
+        // Huom: lisätään 'status' sarakkeeseen 'active'
+        $stmt = $conn->prepare("INSERT INTO users (name, email, passwordhash, status) VALUES (?, ?, ?, 'active')");
+        if (!$stmt) {
+            $virheet[] = "Tietokantavirhe: " . $conn->error;
+        } else {
+            $stmt->bind_param("sss", $nimi, $gmail, $hash);
+            if ($stmt->execute()) {
+                $_SESSION['success_message'] = "Rekisteröinti onnistui! Voit nyt kirjautua sisään.";
+                header("Location: login.php");
+                exit;
+            } else {
+                $virheet[] = "Rekisteröinti epäonnistui: " . $stmt->error;
+            }
+            $stmt->close();
         }
     }
 }
-
 ?>
 <!doctype html>
 <html>
@@ -69,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     </div>
     <div class="oikea-paneeli">
- <form action="login.php" method="post">
+ <form action="" method="post">
         <!-- Lomakkeen otsikko -->
 <h2>Rekisteröityminen</h2>
     <br>
@@ -88,7 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <br>
     <button type="submit">Rekisteröidy</button>
 </form>
-    </form>
     </div>
 </div>
 <div class="Lumi-maa"></div>
