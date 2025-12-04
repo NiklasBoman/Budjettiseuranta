@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Kirjaudu sisään</title>
+<title>Register</title>
 <link rel="stylesheet" href="logintyyli.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

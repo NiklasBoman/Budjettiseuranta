@@ -8,6 +8,7 @@ body {
     background-color: #f8f9fa;; 
     background: linear-gradient(rgb(115 114 237 / 66%), rgb(255 166 166 / 53%));
 }
+/*Kirjatumissivu */
 .container {
   position: relative;
   z-index: 1;
@@ -27,12 +28,13 @@ body {
   transform: rotate(-35deg);
   z-index: 999;
 }
+/* .jolly-alarm kuva
 .jolly-alarm {
     width: 100%;
     max-width: 410px;
     height: 471px;
     border-radius: 0px 0px 0px 30px;
-}
+} */
     .vasen-paneeli{
         flex: 1;
         background: linear-gradient(to bottom right, #ed2f2f, #8dd2f1);
@@ -78,9 +80,6 @@ body {
         background-color: transparent;
         cursor: pointer;
     }
-    
-
-
     button {
         width: 100%;
         padding: 10px;
@@ -151,6 +150,41 @@ body {
   border-top-right-radius: 50% 20px;
   z-index: 0;           
 }
+/* trancation*/
+.isocontainer {
+    width: 95%;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    flex-wrap: nowrap;
+}
+
+.pienicontainer {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* hiutaleet */
 .lumi {
     position: fixed;
