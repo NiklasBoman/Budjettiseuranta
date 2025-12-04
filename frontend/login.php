@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="fi">
 <head>
 <title>Kirjaudu sisään</title>
 <link rel="stylesheet" href="logintyyli.css">
