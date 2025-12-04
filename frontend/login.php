@@ -31,21 +31,24 @@ $stmt->bind_result($kayttajaID, $nimi, $gmail_db, $hash, $status);
             
             // Tallennetaan käyttäjän tiedot sessioon
             $_SESSION['userid'] = $kayttajaID;
-            $_SESSION['nimi'] = $nimi;
-            $_SESSION['gmail'] = $gmail_db;
+            $_SESSION['name'] = $nimi;
+            $_SESSION['email'] = $gmail_db;
             $_SESSION['status'] = $status; // Tallennetaan status sessioon
 
-
+            // Ohjataan käyttäjä roolin perusteella oikealle sivulle
+            if ($status === 'deleted') {
+                print("❌ Tilisi on poistettu. Ota yhteyttä tukeen.");
+            } else {
                 header("Location: transactions.php");
-                exit();
+            }
+            exit;
         } else {
             $error = "❌ Väärä salasana.";  //Jos salasana väärin annetaan virhe.
         }
-    }else {
+    } else {
         $error = "❌ Käyttäjätunnusta ei löytynyt."; //Sama juttu jos käyttäjätunnus ei löydy tietokannasta.
     }
     $stmt->close();
-
 }
 ?>
 <!doctype html>
