@@ -196,7 +196,7 @@ p.trancation-teksti {
 } 
 .pienicontainer {
     /* tausta */
-    background: linear-gradient(to right, #44dcffe6, #eb4c968c);
+    background: linear-gradient(to right, #ffffffe6, #eb4c968c);
     /* koko */
     width: 500px;
     max-width: 850px;
