@@ -37,16 +37,16 @@ $stmt->bind_result($kayttajaID, $nimi, $gmail_db, $hash, $status);
 
 
                 header("Location: index.php");
-            }
+                exit();
         } else {
             $error = "❌ Väärä salasana.";  //Jos salasana väärin annetaan virhe.
         }
-    } else {
+    }else {
         $error = "❌ Käyttäjätunnusta ei löytynyt."; //Sama juttu jos käyttäjätunnus ei löydy tietokannasta.
     }
     $stmt->close();
 
-
+}
 ?>
 <!doctype html>
 <html lang="fi">
