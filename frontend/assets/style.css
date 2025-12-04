@@ -175,9 +175,10 @@ h1 {
     color: #333;
     z-index: 2;
 }
-p {
+p.trancation-teksti {
     text-align: center;
     color: #555;
+    font-weight: 600;
     z-index: 2;
 }
 .isocontainer {
@@ -206,8 +207,7 @@ p {
     /* muotoilu */
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    font-weight: 600;
-    text-align: center;
+    
     z-index: 1;
 }
 

@@ -14,19 +14,19 @@
 <div class="content-wrapper">
 <div class="teksticontainer">
 <h1>Budjettiseuranta</h1>
-<p>Seuraa talouttasi talven aikana</p>
+<p class="trancation-teksti"> Seuraa talouttasi talven aikana</p>
 </div>
 <div class="isocontainer">
 <div class="pienicontainer">
-    <p>Tulot</p>
+    <p class="trancation-teksti">Tulot</p>
     <!-- Sisältö tulee tähän -->
 </div>
 <div class="pienicontainer">
-    <p>Menot</p>
+    <p class="trancation-teksti">Menot</p>
     <!-- Sisältö tulee tähän -->
 </div>
 <div class="pienicontainer">
-    <p>Saldo</p>
+    <p class="trancation-teksti">Saldo</p>
     <!-- Sisältö tulee tähän -->
 </div>
 </div>
