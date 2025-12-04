@@ -1,3 +1,54 @@
+<?php
+    session_start();
+include '../backend/db.php'; // Yhteys tietokantaan
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $gmail = $_POST['gmail'] ?? '';
+    $salasana = $_POST['salasana'] ?? '';
+
+    // Valmistellaan kysely
+    $stmt = $conn->prepare("SELECT UserID, Nimi, Gmail, SalasanaHash, Status FROM users WHERE email = ?");
+    $stmt->bind_param("s", $gmail);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows == 1) {
+        // Määritellään muuttujat ennen bind_result-kutsua
+$kayttajaID = null;
+$nimi = null;
+$gmail_db = null;
+$hash = null;
+$status = null;
+
+$stmt->bind_result($kayttajaID, $nimi, $gmail_db, $hash, $status);
+        $stmt->fetch();
+
+        if (password_verify($salasana, $hash)) {
+            // Luodaan uusi sessiotunniste turvallisuussyistä (estää session fixation)
+            // ja poistetaan vanha sessiotiedosto.
+            session_regenerate_id(true);
+            
+            // Tallennetaan käyttäjän tiedot sessioon
+            $_SESSION['UserID'] = $kayttajaID;
+            $_SESSION['Nimi'] = $nimi;
+            $_SESSION['Gmail'] = $gmail_db;
+            $_SESSION['Status'] = $status; // Tallennetaan rooli sessioon
+
+
+                header("Location: index.php");
+            }
+            exit;
+        } else {
+            $error = "❌ Väärä salasana.";  //Jos salasana väärin annetaan virhe.
+        }
+    } else {
+        $error = "❌ Käyttäjätunnusta ei löytynyt."; //Sama juttu jos käyttäjätunnus ei löydy tietokannasta.
+    }
+    $stmt->close();
+
+
+?>
 <!doctype html>
 <html lang="fi">
 <head>
