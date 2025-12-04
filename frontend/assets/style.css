@@ -191,27 +191,25 @@ p {
     gap: 5px;
     flex-wrap: nowrap;
     z-index: 1;
-}
+
+} 
 .pienicontainer {
+    /* tausta */
+    background: linear-gradient(to right, #44dcffe6, #eb4c968c);
+    /* koko */
     width: 500px;
     max-width: 850px;
+    height: 150px;
+    /* sijoittelu */
     margin: 20px auto;
-    background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* muotoilu */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+    text-align: center;
     z-index: 1;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
