@@ -60,7 +60,7 @@ $stmt->bind_result($kayttajaID, $nimi, $gmail_db, $hash, $status);
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../frontend/assets/style.css">
 </head>
-<body>
+<body class="login">
  
 <div class="container">
     <img src="../frontend/assets/joululakki.png" alt="Joululakki" class="joululakki">

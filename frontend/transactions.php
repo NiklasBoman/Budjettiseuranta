@@ -10,12 +10,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../frontend/assets/style.css">
 </head>
-<body>
+<body class="content">
+<div class="content-wrapper">
+<div class="teksticontainer">
 <h1>Budjettiseuranta</h1>
 <p>Seuraa talouttasi talven aikana</p>
+</div>
 <div class="isocontainer">
 <div class="pienicontainer">
-    <p>Tuolot</p>
+    <p>Tulot</p>
     <!-- Sisältö tulee tähän -->
 </div>
 <div class="pienicontainer">
@@ -25,6 +28,7 @@
 <div class="pienicontainer">
     <p>Saldo</p>
     <!-- Sisältö tulee tähän -->
+</div>
 </div>
 </div>
 

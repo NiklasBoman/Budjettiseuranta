@@ -1,7 +1,18 @@
-body {
+body.login {
     margin: 0;
     display: flex;
     justify-content: center;
+    height: 100vh;
+    align-items: center;
+    font-family: 'Verdana';;
+    background-color: #f8f9fa;; 
+    background: linear-gradient(rgb(115 114 237 / 66%), rgb(255 166 166 / 53%));
+}
+body.content{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     height: 100vh;
     align-items: center;
     font-family: 'Verdana';;
@@ -151,9 +162,27 @@ body {
   z-index: 0;           
 }
 /* trancation*/
+.teksticontainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1;
+}
+h1 {
+    text-align: center;
+    color: #333;
+    z-index: 2;
+}
+p {
+    text-align: center;
+    color: #555;
+    z-index: 2;
+}
 .isocontainer {
-    width: 95%;
-    max-width: 1400px;
+    width: 100%;
+    max-width: 950px;
     margin: 20px auto;
     padding: 30px;
     border-radius: 15px;
@@ -161,16 +190,17 @@ body {
     justify-content: space-between;
     gap: 5px;
     flex-wrap: nowrap;
+    z-index: 1;
 }
-
 .pienicontainer {
-    width: 90%;
-    max-width: 1200px;
+    width: 500px;
+    max-width: 850px;
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
 
@@ -193,7 +223,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
 }
 
 .snowflake {
@@ -205,6 +235,7 @@ body {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-duration: 5.4s; /*nopeus*/
+  z-index: -1;
 }
 
 .lumihiutale1 {
@@ -272,6 +303,21 @@ body {
         font-size: 24px;
     }
     p{
+        font-size: 14px;
+    }
+        .teksticontainer {
+        width: 95%;          /* vähän kapeampi mobiilissa */
+        padding: 15px;
+        font-size: 14px;
+    }
+    .isocontainer {  /* rivit allekkain */
+        gap: 10px;
+        width: 95%;
+        padding: 20px;
+    }
+    .pienicontainer {
+        width: 95%;
+        padding: 15px;
         font-size: 14px;
     }
 }
