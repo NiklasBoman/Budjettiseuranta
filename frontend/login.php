@@ -38,7 +38,6 @@ $stmt->bind_result($kayttajaID, $nimi, $gmail_db, $hash, $status);
 
                 header("Location: index.php");
             }
-            exit;
         } else {
             $error = "❌ Väärä salasana.";  //Jos salasana väärin annetaan virhe.
         }
