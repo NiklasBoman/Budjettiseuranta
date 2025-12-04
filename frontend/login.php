@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $salasana = $_POST['salasana'] ?? '';
 
     // Valmistellaan kysely
-    $stmt = $conn->prepare("SELECT UserID, Nimi, Gmail, SalasanaHash, Status FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT userid, nimi, gmail, salasanahash, status FROM users WHERE gmail = ?");
     $stmt->bind_param("s", $gmail);
     $stmt->execute();
     $stmt->store_result();
@@ -30,10 +30,10 @@ $stmt->bind_result($kayttajaID, $nimi, $gmail_db, $hash, $status);
             session_regenerate_id(true);
             
             // Tallennetaan käyttäjän tiedot sessioon
-            $_SESSION['UserID'] = $kayttajaID;
-            $_SESSION['Nimi'] = $nimi;
-            $_SESSION['Gmail'] = $gmail_db;
-            $_SESSION['Status'] = $status; // Tallennetaan rooli sessioon
+            $_SESSION['userid'] = $kayttajaID;
+            $_SESSION['nimi'] = $nimi;
+            $_SESSION['gmail'] = $gmail_db;
+            $_SESSION['status'] = $status; // Tallennetaan status sessioon
 
 
                 header("Location: index.php");
