@@ -97,7 +97,7 @@ $stmt->bind_result($kayttajaID, $nimi, $gmail_db, $hash, $status);
             <a href="register.php" class="register-link">Rekisteröidy</a>
         </div>
 
-        <!-- Kirjautumispainike -->
+        <!-- Kirjautumispainike ok -->
         <button type="submit">Kirjaudu</button>
         <br><br>
     </form>
