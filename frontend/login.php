@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $salasana = $_POST['salasana'] ?? '';
 
     // Valmistellaan kysely
-    $stmt = $conn->prepare("SELECT userid, nimi, gmail, salasanahash, status FROM users WHERE gmail = ?");
+    $stmt = $conn->prepare("SELECT userid, name, gmail, salasanahash, status FROM users WHERE gmail = ?");
     $stmt->bind_param("s", $gmail);
     $stmt->execute();
     $stmt->store_result();
@@ -36,7 +36,7 @@ $stmt->bind_result($kayttajaID, $nimi, $gmail_db, $hash, $status);
             $_SESSION['status'] = $status; // Tallennetaan status sessioon
 
 
-                header("Location: index.php");
+                header("Location: transactions.php");
                 exit();
         } else {
             $error = "❌ Väärä salasana.";  //Jos salasana väärin annetaan virhe.
