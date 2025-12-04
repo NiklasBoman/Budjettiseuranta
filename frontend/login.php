@@ -18,7 +18,7 @@
     <div class="vasen-paneeli">
     <h2> Tervetuloa takaisin! </h2>
     <p>Kirjaudu sisään jatkaaksesi</p>
-    <img src = "../frontend/assets/jolly-alarm.gif" alt="Jolly Alarm" class="jolly-alarm">
+<img src = "../frontend/assets/jolly-alarm.gif" alt="Jolly Alarm" class="jolly-alarm">    
     </div>
     <div class="oikea-paneeli">
  <form action="login.php" method="post">
@@ -62,7 +62,7 @@
         <div class="snowflake lumihiutale6">❅</div>
         <div class="snowflake lumihiutale7">❅</div>
         <div class="snowflake lumihiutale8">❅</div>
-        <div class="snowflake lumihiutale9">❅</div>
+        <div class="snowflake lumihiutale9">❆</div>
     </div>
 </body>
 </html>
