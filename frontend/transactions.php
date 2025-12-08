@@ -1,5 +1,9 @@
 <!doctype html>
 <html lang="fi">
+<?php 
+    require_once("includes/header.php"); //sisältää footer, header, css, bootstrap
+
+?>
 <head>
 <title>Transactions</title>
 <link rel="stylesheet" href="logintyyli.css">
@@ -48,5 +52,11 @@
         <div class="snowflake lumihiutale8">❅</div>
         <div class="snowflake lumihiutale9">❆</div>
     </div>
+<?php
+if(!isset($_SESSION["userid"])){
+    header("Location: logout.php");
+    exit;
+}
+?>
 </body>
 </html>
