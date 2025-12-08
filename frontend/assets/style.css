@@ -287,7 +287,9 @@ p.trancation-teksti {
     position: fixed;
     top: 0;
     margin-bottom: 100px;
+    display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 .footer{
     bottom: 0;
