@@ -1,5 +1,5 @@
 <div class="header">
-    <p>logo</p>
+    <img src="../frontend/assets/jolly-alarm.gif" alt="logo" class="logo">
     <?php
     // Kirjaudu sisään/ulos painike riippuen siitä, onko käyttäjä kirjautunut vai ei
     session_start();
