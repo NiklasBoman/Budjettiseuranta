@@ -10,6 +10,7 @@ body.login {
 }
 body.content{
     margin: 0;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -180,34 +181,40 @@ p.trancation-teksti {
     z-index: 2;
 }
 .isocontainer {
-    width: 100%;
-    max-width: 950px;
-    margin: 20px auto;
-    padding: 30px;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 10px;
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
-    gap: 5px;
-    flex-wrap: nowrap;
+    gap: 10px;
+    flex-wrap:nowrap;
     z-index: 1;
-
+    margin-bottom: 30px;
 } 
 .pienicontainer {
+     flex: 1;
     /* tausta */
     background: linear-gradient(to right, #ffffffe6, #eb4c968c);
     /* koko */
-    width: 500px;
-    max-width: 850px;
-    height: 150px;
+    height: 100px;
     /* sijoittelu */
-    margin: 20px auto;
-    padding: 20px;
     /* muotoilu */
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    
     z-index: 1;
+    padding: 10px;
 }
+.pienicontainer.tulot {
+  background: linear-gradient(to right, #ffe6e6, #ff4c4c);
+}
+.pienicontainer.menot {
+  background: linear-gradient(to right, #e6ffe6, #4cff4c);
+}
+.pienicontainer.saldo {
+  background: linear-gradient(to right, #e6e6ff, #4c4cff);
+}
+
 .lisaa-tapahtuma-btn{
     max-width: 150px;
     height: 50px;
@@ -226,10 +233,11 @@ p.trancation-teksti {
   display: flex;
   width: 80%;
   max-width: 900px;
-  height: 600px;
+  height: 300px;
   border-radius: 10px;
   overflow: visible;
   background-color: #ffffffdb;
+  padding: 20px;
 }
 
 /* hiutaleet */
@@ -359,19 +367,15 @@ p.trancation-teksti {
     p{
         font-size: 14px;
     }
-        .teksticontainer {
+    .teksticontainer {
         width: 95%;          /* vähän kapeampi mobiilissa */
         padding: 15px;
         font-size: 14px;
     }
-    .isocontainer {  /* rivit allekkain */
-        gap: 10px;
-        width: 95%;
-        padding: 20px;
-    }
-    .pienicontainer {
-        width: 95%;
-        padding: 15px;
+    .lisaa-tapahtuma-btn{
+        max-width: 120px;
+        height: 40px;
+        padding: 10px;
         font-size: 14px;
     }
 }
