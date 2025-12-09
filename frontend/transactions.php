@@ -65,7 +65,7 @@ if (isset($_POST['lisaa_tapahtuma'])) {
 
     if ($kuvaus && ($tulo > 0 || $menot > 0)) {
         $stmt = $conn->prepare("INSERT INTO tapahtumat (userid, kuvaus, tulo, Menot, paivamaara, kategoria) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("isdds", $userid, $kuvaus, $tulo, $menot, $paivamaara, $kategoria);
+        $stmt->bind_param("isddss", $userid, $kuvaus, $tulo, $menot, $paivamaara, $kategoria);
         $stmt->execute();
         $stmt->close();
 
