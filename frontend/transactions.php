@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="../frontend/assets/style.css">
 </head>
 <body class="content">
-<div class="content-wrapper">
 <div class="teksticontainer">
 <h1>Budjettiseuranta</h1>
 <p class="trancation-teksti"> Seuraa talouttasi talven aikana</p>
@@ -32,7 +31,6 @@
 <div class="pienicontainer">
     <p class="trancation-teksti">Saldo</p>
     <!-- Sisältö tulee tähän -->
-</div>
 </div>
 </div>
 <div class="container2">
