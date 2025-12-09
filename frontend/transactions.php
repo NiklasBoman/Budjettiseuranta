@@ -31,7 +31,7 @@ $saldo = $tulot - $menot;
 $tapahtumat = [];
 
 $stmt = $conn->prepare("
-    SELECT kuvaus, tulo, Menot, paivamaara 
+    SELECT kuvaus, tulo, Menot, paivamaara, kategoria
     FROM tapahtumat
     WHERE userid = ?
     ORDER BY paivamaara DESC
@@ -46,6 +46,35 @@ while ($row = $result->fetch_assoc()) {
 $stmt->close();
 
 $userid = $_SESSION["userid"];
+
+if (isset($_POST['lisaa_tapahtuma'])) {
+    $kuvaus = trim($_POST['kuvaus'] ?? '');
+    $tyyppi = $_POST['tyyppi'] ?? 'tulo';
+    $summa = floatval($_POST['summa'] ?? 0);
+    $paivamaara = $_POST['paivamaara'] ?? date('Y-m-d');
+    $kategoria = $_POST['kategoria'] ?? 'Muu';
+
+    $tulo = 0;
+    $menot = 0;
+
+    if ($tyyppi === 'tulo') {
+        $tulo = $summa;
+    } else {
+        $menot = $summa;
+    }
+
+    if ($kuvaus && ($tulo > 0 || $menot > 0)) {
+        $stmt = $conn->prepare("INSERT INTO tapahtumat (userid, kuvaus, tulo, Menot, paivamaara, kategoria) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("isdds", $userid, $kuvaus, $tulo, $menot, $paivamaara, $kategoria);
+        $stmt->execute();
+        $stmt->close();
+
+        header("Location: " . $_SERVER['PHP_SELF']); // Päivitä sivu
+        exit;
+    } else {
+        $error_message = "Täytä kuvaus ja summa.";
+    }
+}
     require_once("includes/header.php"); //sisältää footer, header, css, bootstrap
 
 ?>
@@ -80,42 +109,49 @@ $userid = $_SESSION["userid"];
 </div>
 <div class="container2">
     <h2>Tapahtumat</h2>
-<?php foreach ($tapahtumat as $t): ?>
-    <div class="tapahtumarivi">
-        <div>
-            <strong><?= htmlspecialchars($t['kuvaus']) ?></strong><br>
-            <small><?= $t['paivamaara'] ?></small>
-        </div>
+    <?php foreach ($tapahtumat as $t): ?>
+        <div class="tapahtumarivi">
+            <div>
+                <strong><?= htmlspecialchars($t['kuvaus']) ?></strong> 
+                <em>(<?= htmlspecialchars($t['kategoria']) ?>)</em><br>
+                <small><?= $t['paivamaara'] ?></small>
+            </div>
 
-        <div class="tapahtuma-maara <?= $t['tulo'] ? 'tulo' : 'meno' ?>">
-            <?= $t['tulo'] ? "+{$t['tulo']} €" : "-{$t['Menot']} €" ?>
+            <div class="tapahtuma-maara <?= $t['tulo'] ? 'tulo' : 'meno' ?>">
+                <?= $t['tulo'] ? "+{$t['tulo']} €" : "-{$t['Menot']} €" ?>
+            </div>
         </div>
-    </div>
-<?php endforeach; ?>
+    <?php endforeach; ?>
+</div>
+
 <div class="lisaa-tapahtuma-container">
     <h3>Lisää uusi tapahtuma</h3>
-    <form method="post" action="">
-        <input type="text" name="kuvaus" placeholder="Kuvaus" required>
-        <label> Tyyppi</label> 
-                <label>Kategoria</label>
-        <label>Summa</label> <br>
-        <select>
-            <option>Tulo</option>
-            <option>Meno</option>
-        </select>
-        
-        <select>
-            <option>Ostokset</option>
-            <option>Asuminen</option>
-            <option>Ruoka</option>
-            <option>Liikkenne</option>
-            <option>Muu</option>
-        </select>
-        <input type="number" name="summa" placeholder="Summa €" min="0" step="0.01">
-        <input type="date" name="paivamaara" required>
+<form method="post" action="">
+    <input type="text" name="kuvaus" placeholder="Kuvaus" required>
 
-        <button type="submit" name="lisaa_tapahtuma">Lisää</button>
-    </form>
+    <label>Tyyppi</label>
+    <select name="tyyppi" required>
+        <option value="tulo">Tulo</option>
+        <option value="meno">Meno</option>
+    </select>
+
+    <label>Kategoria</label>
+    <select name="kategoria">
+        <option>Ostokset</option>
+        <option>Asuminen</option>
+        <option>Ruoka</option>
+        <option>Liikenne</option>
+        <option>Muu</option>
+    </select>
+
+    <label>Summa</label>
+    <input type="number" name="summa" placeholder="Summa €" min="0" step="0.01" required>
+
+    <input type="date" name="paivamaara" required>
+
+    <button type="submit" name="lisaa_tapahtuma">Lisää</button>
+</form>
+
 
 
 
