@@ -224,12 +224,12 @@ p.trancation-teksti {
   position: relative;
   z-index: 1;
   display: flex;
-  width: 100%;
+  width: 80%;
   max-width: 900px;
   height: 600px;
   border-radius: 10px;
   overflow: visible;
-  background-color: #ffffffa8;
+  background-color: #ffffffdb;
 }
 
 /* hiutaleet */
