@@ -93,17 +93,15 @@ $userid = $_SESSION["userid"];
     </div>
 <?php endforeach; ?>
 <div class="lisaa-tapahtuma-container">
-    <h3>Lisää uusi tapahtuma</h3>
+    <div class="scrolling-wrapper">
     <form method="post" action="">
-        <input type="text" name="kuvaus" placeholder="Kuvaus" required>
-        <label> Tyyppi</label> 
-                <label>Kategoria</label>
-        <label>Summa</label> <br>
-        <select>
+            <select>
             <option>Tulo</option>
             <option>Meno</option>
         </select>
-        
+        <input type="text" name="kuvaus" placeholder="Kuvaus" required>
+        </div>
+        <div class="scrolling-wrapper">
         <select>
             <option>Ostokset</option>
             <option>Asuminen</option>
@@ -113,7 +111,7 @@ $userid = $_SESSION["userid"];
         </select>
         <input type="number" name="summa" placeholder="Summa €" min="0" step="0.01">
         <input type="date" name="paivamaara" required>
-
+        </div>
         <button type="submit" name="lisaa_tapahtuma">Lisää</button>
     </form>
 
