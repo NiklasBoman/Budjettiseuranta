@@ -96,9 +96,24 @@ $userid = $_SESSION["userid"];
     <h3>Lisää uusi tapahtuma</h3>
     <form method="post" action="">
         <input type="text" name="kuvaus" placeholder="Kuvaus" required>
-        <input type="number" name="tulo" placeholder="Tulo €" min="0" step="0.01">
-        <input type="number" name="menot" placeholder="Meno €" min="0" step="0.01">
+        <label> Tyyppi</label> 
+                <label>Kategoria</label>
+        <label>Summa</label> <br>
+        <select>
+            <option>Tulo</option>
+            <option>Meno</option>
+        </select>
+        
+        <select>
+            <option>Ostokset</option>
+            <option>Asuminen</option>
+            <option>Ruoka</option>
+            <option>Liikkenne</option>
+            <option>Muu</option>
+        </select>
+        <input type="number" name="summa" placeholder="Summa €" min="0" step="0.01">
         <input type="date" name="paivamaara" required>
+
         <button type="submit" name="lisaa_tapahtuma">Lisää</button>
     </form>
 
