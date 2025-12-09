@@ -108,46 +108,46 @@ if (isset($_POST['lisaa_tapahtuma'])) {
 </div>
 </div>
 <div class="container2">
+  <div class="vasen-container">
+    <!-- tähän vasemmalle esim. tapahtumat -->
     <h2>Tapahtumat</h2>
     <?php foreach ($tapahtumat as $t): ?>
-        <div class="tapahtumarivi">
-            <div>
-                <strong><?= htmlspecialchars($t['kuvaus']) ?></strong> 
-                <em>(<?= htmlspecialchars($t['kategoria']) ?>)</em><br>
-                <small><?= $t['paivamaara'] ?></small>
-            </div>
-            <div class="tapahtuma-maara <?= $t['tulo'] ? 'tulo' : 'meno' ?>">
-                <?= $t['tulo'] ? "+{$t['tulo']} €" : "-{$t['Menot']} €" ?>
-            </div>
+      <div class="tapahtumarivi">
+        <div>
+          <strong><?= htmlspecialchars($t['kuvaus']) ?></strong> 
+          <em>(<?= htmlspecialchars($t['kategoria']) ?>)</em><br>
+          <small><?= $t['paivamaara'] ?></small>
         </div>
+        <div class="tapahtuma-maara <?= $t['tulo'] ? 'tulo' : 'meno' ?>">
+          <?= $t['tulo'] ? "+{$t['tulo']} €" : "-{$t['Menot']} €" ?>
+        </div>
+      </div>
     <?php endforeach; ?>
-</div>
+  </div>
+
+  <div class="oikea-container">
+    <!-- tähän oikealle esim. lomake -->
     <form method="post" action="">
-        <div class="scrolling-wrapper">
-            <div class="osa">
-                <select name="tyyppi">
-                    <option value="tulo">Tulo</option>
-                    <option value="meno">Meno</option>
-                </select><br>
-            </div>
-
-                <select name="kategoria">
-                    <option>Ostokset</option>
-                    <option>Asuminen</option>
-                    <option>Ruoka</option>
-                    <option>Liikenne</option>
-                    <option>Tulot</option>
-                    <option>Muu</option>
-                </select><br>
-                <input type="text" name="kuvaus" placeholder="Kuvaus" required><br>
-                <input type="number" name="summa" placeholder="Summa €" min="0" step="0.01"><br>
-                <input type="date" name="paivamaara" required>
-                <button type="submit" name="lisaa_tapahtuma">Lisää</button>
-            </div>
-
-        
+      <select name="tyyppi">
+        <option value="tulo">Tulo</option>
+        <option value="meno">Meno</option>
+      </select><br>
+      <select name="kategoria">
+        <option>Ostokset</option>
+        <option>Asuminen</option>
+        <option>Ruoka</option>
+        <option>Liikenne</option>
+        <option>Tulot</option>
+        <option>Muu</option>
+      </select><br>
+      <input type="text" name="kuvaus" placeholder="Kuvaus" required><br>
+      <input type="number" name="summa" placeholder="Summa €" min="0" step="0.01"><br>
+      <input type="date" name="paivamaara" required>
+      <button type="submit" name="lisaa_tapahtuma">Lisää</button>
     </form>
+  </div>
 </div>
+
 
 
 
