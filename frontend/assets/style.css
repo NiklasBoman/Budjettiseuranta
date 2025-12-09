@@ -234,6 +234,7 @@ p.trancation-teksti {
   background-color: #ffffffdb;
   padding: 20px;
   height: 500px;
+  z-index: 1;
 }
 
 .vasen-container {
@@ -410,7 +411,7 @@ input[type="text"] {
     }
     .container2{
         width: 80%;
-        height: auto;
+        height: 500px;
     }
   .pienicontainer {
     width: 100%;
