@@ -94,8 +94,15 @@ $userid = $_SESSION["userid"];
         </div>
     </div>
 <?php endforeach; ?>
-    <button class="lisaa-tapahtuma-btn">Lisää</button>
-</div>
+<div class="lisaa-tapahtuma-container">
+    <h3>Lisää uusi tapahtuma</h3>
+    <form method="post" action="">
+        <input type="text" name="kuvaus" placeholder="Kuvaus" required>
+        <input type="number" name="tulo" placeholder="Tulo €" min="0" step="0.01">
+        <input type="number" name="menot" placeholder="Meno €" min="0" step="0.01">
+        <input type="date" name="paivamaara" required>
+        <button type="submit" name="lisaa_tapahtuma">Lisää</button>
+    </form>
 
 
 
