@@ -198,7 +198,7 @@ p.trancation-teksti {
     /* tausta */
     background: linear-gradient(to right, #ffffffe6, #eb4c968c);
     /* koko */
-    height: 150px;
+    height: 100px;
     /* sijoittelu */
     /* muotoilu */
     border-radius: 15px;
@@ -357,18 +357,8 @@ p.trancation-teksti {
     p{
         font-size: 14px;
     }
-        .teksticontainer {
+    .teksticontainer {
         width: 95%;          /* vähän kapeampi mobiilissa */
-        padding: 15px;
-        font-size: 14px;
-    }
-    .isocontainer {  /* rivit allekkain */
-        gap: 10px;
-        width: 95%;
-        padding: 20px;
-    }
-    .pienicontainer {
-        width: 95%;
         padding: 15px;
         font-size: 14px;
     }
