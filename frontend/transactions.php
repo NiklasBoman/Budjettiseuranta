@@ -121,7 +121,7 @@ if (isset($_POST['lisaa_tapahtuma'])) {
             </div>
         </div>
     <?php endforeach; ?>
-
+</div>
     <!-- Lomake yhdessä wrapperissa, kahteen osaan jaettuna -->
     <form method="post" action="">
         <div class="scrolling-wrapper">
