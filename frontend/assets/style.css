@@ -19,6 +19,7 @@ body.content{
     background-color: #f8f9fa;; 
     background: linear-gradient(rgb(115 114 237 / 66%), rgb(255 166 166 / 53%));
     height: 105vh;
+    overflow-y: hidden;
 }
 /*Kirjatumissivu */
 .container {
@@ -403,4 +404,9 @@ input[type="text"] {
   .pienicontainer {
     width: 100%;
   }
+}
+@media (max-width: 400px ){
+        body.content{
+        overflow-y: auto;
+    }
 }
