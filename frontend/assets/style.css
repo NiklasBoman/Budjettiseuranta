@@ -18,7 +18,7 @@ body.content{
     font-family: 'Verdana';;
     background-color: #f8f9fa;; 
     background: linear-gradient(rgb(115 114 237 / 66%), rgb(255 166 166 / 53%));
-    height: 100vh;
+    height: 105vh;
 }
 /*Kirjatumissivu */
 .container {
@@ -234,7 +234,7 @@ p.trancation-teksti {
     border-radius: 10px;
     overflow-y: auto;        
     background-color: #ffffffdb;
-    padding: 20px;
+    padding: 5px;
 }
 select{
     padding: 10px;
@@ -403,11 +403,4 @@ input[type="text"] {
   .pienicontainer {
     width: 100%;
   }
-}
-@media (max-width: 400px) {
-    .container2{
-        width: 80%;
-        padding: 10px;
-        overflow: hidden;
-    }
 }
