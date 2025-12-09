@@ -65,15 +65,15 @@ $userid = $_SESSION["userid"];
 <p class="trancation-teksti"> Seuraa talouttasi talven aikana</p>
 </div>
 <div class="isocontainer">
-<div class="pienicontainer">
+<div class="pienicontainer tulot">
     <p class="trancation-teksti">Tulot</p>
     <p class="summa"><?= number_format($tulot, 2, ",", " ") ?> €</p>
 </div>
-<div class="pienicontainer">
+<div class="pienicontainer menot">
     <p class="trancation-teksti">Menot</p>
     <p class="summa"><?= number_format($menot, 2, ",", " ") ?> €</p>
 </div>
-<div class="pienicontainer">
+<div class="pienicontainer saldo">
     <p class="trancation-teksti">Saldo</p>
     <p class="summa"><?= number_format($saldo, 2, ",", " ") ?> €</p>
 </div>

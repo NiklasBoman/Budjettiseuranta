@@ -190,8 +190,7 @@ p.trancation-teksti {
     gap: 10px;
     flex-wrap:nowrap;
     z-index: 1;
-    margin-bottom: 10PX;
-
+    margin-bottom: 30px;
 } 
 .pienicontainer {
      flex: 1;
@@ -203,9 +202,19 @@ p.trancation-teksti {
     /* muotoilu */
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    
     z-index: 1;
+    padding: 10px;
 }
+.pienicontainer.tulot {
+  background: linear-gradient(to right, #ffe6e6, #ff4c4c);
+}
+.pienicontainer.menot {
+  background: linear-gradient(to right, #e6ffe6, #4cff4c);
+}
+.pienicontainer.saldo {
+  background: linear-gradient(to right, #e6e6ff, #4c4cff);
+}
+
 .lisaa-tapahtuma-btn{
     max-width: 150px;
     height: 50px;
@@ -228,6 +237,7 @@ p.trancation-teksti {
   border-radius: 10px;
   overflow: visible;
   background-color: #ffffffdb;
+  padding: 20px;
 }
 
 /* hiutaleet */
