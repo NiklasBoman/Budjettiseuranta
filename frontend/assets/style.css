@@ -208,8 +208,29 @@ p.trancation-teksti {
     
     z-index: 1;
 }
-
-
+.lisaa-tapahtuma-btn{
+    max-width: 150px;
+    height: 50px;
+    padding: 15px;
+    background-color: #131618c0;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: auto;
+}
+.container2{
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  height: 600px;
+  border-radius: 10px;
+  overflow: visible;
+  background-color: #ffffffa8;
+}
 
 /* hiutaleet */
 .lumi {

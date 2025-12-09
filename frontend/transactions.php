@@ -35,8 +35,11 @@
 </div>
 </div>
 </div>
-
-
+<div class="container2">
+    <h2>Tapahtumat</h2>
+    <!-- Tapahtumien listaus tulee tähän -->
+    <button class="lisaa-tapahtuma-btn">Lisää</button>
+</div>
 
 
 
