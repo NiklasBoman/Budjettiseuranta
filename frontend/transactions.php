@@ -43,7 +43,6 @@
 
 
 
-    <div class="Lumi-maa"></div>
    <div class="lumi">
         <div class="snowflake lumihiutale1">❅</div>
         <div class="snowflake lumihiutale2">❆</div>
