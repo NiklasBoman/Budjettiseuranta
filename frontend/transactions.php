@@ -137,6 +137,7 @@ if (isset($_POST['lisaa_tapahtuma'])) {
                     <option>Asuminen</option>
                     <option>Ruoka</option>
                     <option>Liikenne</option>
+                    <option>Tulot</option>
                     <option>Muu</option>
                 </select><br>
                 <input type="text" name="kuvaus" placeholder="Kuvaus" required><br>
