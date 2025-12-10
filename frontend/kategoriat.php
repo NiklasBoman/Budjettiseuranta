@@ -111,11 +111,9 @@ if (isset($_POST['lisaa_tapahtuma'])) {
 </div>
 <div class="container2">
   <div class="vasen-container">
+    <h2>Kategoriat</h2>
     <!-- tähän vasemmalle esim. tapahtumat -->
   </div>
-        <from method="post" action="">
-        <button type="submit" name="nollaa">Nollaa tapahtumat</button>
-      </form>
       <form method="post" action="transactions.php">
       <button type="submit" name="transactions">Palaa pää sivulle</button>
     </form>
