@@ -146,6 +146,9 @@ if (isset($_POST['lisaa_tapahtuma'])) {
       <input type="number" name="summa" placeholder="Summa €" min="0" step="0.01"><br>
       <input type="date" name="paivamaara" required>
       <button type="submit" name="lisaa_tapahtuma">Lisää</button>
+      </form>
+      <form method="post" action="">
+      <button type="submit" name="kategoriat">Kategoriat</button>
     </form>
   </div>
 </div>

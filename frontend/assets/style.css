@@ -18,7 +18,7 @@ body.content{
     font-family: 'Verdana';;
     background-color: #f8f9fa;; 
     background: linear-gradient(rgb(115 114 237 / 66%), rgb(255 166 166 / 53%));
-    height: 105vh;
+    height: 110vh;
     overflow-y: hidden;
 }
 /*Kirjatumissivu */
@@ -99,6 +99,7 @@ body.content{
         color: white;
         font-size: 16px;
         cursor: pointer;
+        margin-bottom: 10px;
     }
     button:hover {
         background-color: #2d3033;
@@ -422,7 +423,7 @@ input[type="text"] {
     }
     .container2{
         width: 80%;
-        height: 400px;
+        height: 475px;
     }
   .pienicontainer {
     width: 100%;
