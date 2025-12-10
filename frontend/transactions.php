@@ -130,7 +130,7 @@ if (isset($_POST['lisaa_tapahtuma'])) {
   <div class="oikea-container">
     <!-- tähän oikealle esim. lomake -->
     <form method="post" action="">
-      <select name="tyyppi">
+      <select name="tyyppi" class="Margin">
         <option value="tulo">Tulo</option>
         <option value="meno">Meno</option>
       </select><br>
