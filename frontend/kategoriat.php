@@ -80,7 +80,7 @@ if (isset($_POST['lisaa_tapahtuma'])) {
 
 ?>
 <head>
-<title>Transactions</title>
+<title>Kategoriat</title>
 <link rel="stylesheet" href="logintyyli.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -93,7 +93,7 @@ if (isset($_POST['lisaa_tapahtuma'])) {
     <?php require_once("includes/header.php"); //sisältää footer, header, css, bootstrap; ?>
 <div class="teksticontainer">
 <h1>Budjettiseuranta</h1>
-<p class="trancation-teksti"> Seuraa talouttasi talven aikana</p>
+<p class="trancation-teksti"></p>
 </div>
 <div class="isocontainer">
 <div class="pienicontainer tulot">
@@ -112,40 +112,9 @@ if (isset($_POST['lisaa_tapahtuma'])) {
 <div class="container2">
   <div class="vasen-container">
     <!-- tähän vasemmalle esim. tapahtumat -->
-    <h2>Tapahtumat</h2>
-    <?php foreach ($tapahtumat as $t): ?>
-      <div class="tapahtumarivi">
-        <div>
-          <strong><?= htmlspecialchars($t['kuvaus']) ?></strong> 
-          <em>(<?= htmlspecialchars($t['kategoria']) ?>)</em><br>
-          <small><?= $t['paivamaara'] ?></small>
-        </div>
-        <div class="tapahtuma-maara <?= $t['tulo'] ? 'tulo' : 'meno' ?>">
-          <?= $t['tulo'] ? "+{$t['tulo']} €" : "-{$t['Menot']} €" ?>
-        </div>
-      </div>
-    <?php endforeach; ?>
   </div>
 
-  <div class="oikea-container">
-    <!-- tähän oikealle esim. lomake -->
-    <form method="post" action="">
-      <select name="tyyppi" class="Margin">
-        <option value="tulo">Tulo</option>
-        <option value="meno">Meno</option>
-      </select><br>
-      <select name="kategoria">
-        <option>Ostokset</option>
-        <option>Asuminen</option>
-        <option>Ruoka</option>
-        <option>Liikenne</option>
-        <option>Tulot</option>
-        <option>Muu</option>
-      </select><br>
-      <input type="text" name="kuvaus" placeholder="Kuvaus" required><br>
-      <input type="number" name="summa" placeholder="Summa €" min="0" step="0.01"><br>
-      <input type="date" name="paivamaara" required>
-      <button type="submit" name="lisaa_tapahtuma">Lisää</button>
+  
       </form>
       <form method="post" action="kategoriat.php">
       <button type="submit" name="kategoriat">Kategoriat</button>
