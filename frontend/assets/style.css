@@ -204,13 +204,13 @@ p.trancation-teksti {
     padding: 10px;
 }
 .pienicontainer.tulot {
-  background: linear-gradient(to right, #ffe6e6, #ff4c4c);
+  background: linear-gradient(to right, #ffe6e6);
 }
 .pienicontainer.menot {
-  background: linear-gradient(to right, #e6ffe6, #4cff4c);
+  background: linear-gradient(to right, #e6ffe6);
 }
 .pienicontainer.saldo {
-  background: linear-gradient(to right, #e6e6ff, #4c4cff);
+  background: linear-gradient(to right, #e6e6ff);
 }
 /*
 .lisaa-tapahtuma-btn{
