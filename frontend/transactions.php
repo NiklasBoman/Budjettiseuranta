@@ -5,7 +5,7 @@ session_start();
 include '../backend/db.php'; 
 
 $userid = $_SESSION["userid"];
-//tulot     
+//hakee tulot     
 $stmt = $conn->prepare("SELECT SUM(tulo) FROM tapahtumat WHERE userid = ?");
 $stmt->bind_param("i", $userid);
 $stmt->execute();
@@ -14,7 +14,7 @@ $stmt->fetch();
 $stmt->close();
 $tulot = $tulot ?? 0;
 
-//Menot
+//hakee menot
 
 $stmt = $conn->prepare("SELECT SUM(Menot) FROM tapahtumat WHERE userid = ?");
 $stmt->bind_param("i", $userid);
@@ -24,18 +24,20 @@ $stmt->fetch();
 $stmt->close();
 $menot = $menot ?? 0;
 
-//Saldo
+//laskee saldon
 $saldo = $tulot - $menot;
 
 //Haetaan käyttäjän tapahtumat
 $tapahtumat = [];
 
+//Näytetään tapahtumat päivä järjestyksessä
 $stmt = $conn->prepare("
     SELECT kuvaus, tulo, Menot, paivamaara, kategoria
     FROM tapahtumat
     WHERE userid = ?
-    ORDER BY paivamaara DESC
+    ORDER BY paivamaara DESC 
 ");
+
 $stmt->bind_param("i", $userid);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -64,15 +66,15 @@ if (isset($_POST['lisaa_tapahtuma'])) {
     }
 
     if ($kuvaus && ($tulo > 0 || $menot > 0)) {
-        $stmt = $conn->prepare("INSERT INTO tapahtumat (userid, kuvaus, tulo, Menot, paivamaara, kategoria) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("isddss", $userid, $kuvaus, $tulo, $menot, $paivamaara, $kategoria);
+        $stmt = $conn->prepare("INSERT INTO tapahtumat (userid, kuvaus, tulo, Menot, paivamaara, kategoria) VALUES (?, ?, ?, ?, ?, ?)"); //Lisätään tapahtuma tietokantaan 
+        $stmt->bind_param("isddss", $userid, $kuvaus, $tulo, $menot, $paivamaara, $kategoria); 
         $stmt->execute();
         $stmt->close();
 
         header("Location: " . $_SERVER['PHP_SELF']); // Päivitä sivu
         exit;
     } else {
-        $error_message = "Täytä kuvaus ja summa.";
+        $error_message = "Täytä kuvaus ja summa."; //Virheilmoitus jos kenttiä puuttuu
     }
 }
 
