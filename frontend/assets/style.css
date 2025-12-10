@@ -188,6 +188,7 @@ h1 {
     text-align: center;
     color: #333;
     z-index: 2;
+    font-weight: 1000;
 }
 p.trancation-teksti {
     text-align: center;
