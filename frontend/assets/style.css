@@ -20,7 +20,21 @@ body.content{
     background: linear-gradient(rgb(115 114 237 / 66%), rgb(255 166 166 / 53%));
     height: 110vh;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
+.cob {
+  position: fixed;
+  bottom: -5px;
+  right: 0px;
+  width: 15%;
+  max-width: 180px;
+  height: auto;
+  transform: rotate(-25deg);
+  z-index: 10;
+  pointer-events: none;
+  -webkit-user-drag: none
+}
+
 /*Kirjatumissivu */
 .container {
   position: relative;
