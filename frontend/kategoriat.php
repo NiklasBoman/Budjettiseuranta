@@ -77,6 +77,22 @@ if (isset($_POST['lisaa_tapahtuma'])) {
         $error_message = "Täytä kuvaus ja summa."; //Virheilmoitus jos kenttiä puuttuu
     }
 }
+// Hakee menot kategorioittain
+$kategoriakulut = [];
+$stmt = $conn->prepare("
+    SELECT kategoria, SUM(Menot) AS summa 
+    FROM tapahtumat 
+    WHERE userid = ? 
+    GROUP BY kategoria
+");
+$stmt->bind_param("i", $userid);
+$stmt->execute();
+$result = $stmt->get_result();
+
+while ($row = $result->fetch_assoc()) {
+    $kategoriakulut[$row['kategoria']] = $row['summa'];
+}
+$stmt->close();
 
 ?>
 <head>
@@ -113,6 +129,17 @@ if (isset($_POST['lisaa_tapahtuma'])) {
 <div class="container2">
   <div class="vasen-container">
     <h2>Kategoriat</h2>
+    <?php if (!empty($kategoriakulut)): ?>
+    <ul>
+        <?php foreach ($kategoriakulut as $kategoria => $summa): 
+            $prosentti = $menot > 0 ? round(($summa / $menot) * 100, 1) : 0;
+        ?>
+            <li><?= htmlspecialchars($kategoria) ?>: <?= number_format($summa, 2, ',', ' ') ?> € (<?= $prosentti ?>%)</li>
+        <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <p>Ei menoja kategorioissa.</p>
+<?php endif; ?>
     <!-- tähän vasemmalle esim. tapahtumat -->
   </div>
       <form method="post" action="transactions.php">
