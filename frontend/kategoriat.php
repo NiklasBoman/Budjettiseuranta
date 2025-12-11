@@ -4,36 +4,6 @@
 session_start();
 include '../backend/db.php'; 
 
-if (!isset($_SESSION['userid']) && isset($_COOKIE['remember_token'])) {
-
-    $token = $_COOKIE['remember_token'];
-
-    $stmt = $conn->prepare("SELECT userid, name, email, status FROM users WHERE remember_token = ?");
-    $stmt->bind_param("s", $token);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows === 1) {
-
-        $stmt->bind_result($id, $name, $email, $status);
-        $stmt->fetch();
-
-        $_SESSION['userid'] = $id;
-        $_SESSION['name'] = $name;
-        $_SESSION['email'] = $email;
-        $_SESSION['status'] = $status;
-
-        session_regenerate_id(true);
-    }
-
-    $stmt->close();
-}
-
-if (!isset($_SESSION['userid'])) {
-    header("Location: login.php");
-    exit;
-}
-
 $userid = $_SESSION["userid"];
 //hakee tulot     
 $stmt = $conn->prepare("SELECT SUM(tulo) FROM tapahtumat WHERE userid = ?");
@@ -183,6 +153,36 @@ $stmt->close();
     <!-- tähän vasemmalle esim. tapahtumat -->
   </div>
       <form method="post" action="transactions.php">
+      <button type="submit" name="transactions">Palaa pää sivulle</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+   <div class="lumi">
+        <div class="snowflake lumihiutale1">❅</div>
+        <div class="snowflake lumihiutale2">❆</div>
+        <div class="snowflake lumihiutale3">❅</div>
+        <div class="snowflake lumihiutale4">❅</div>
+        <div class="snowflake lumihiutale5">❆</div>
+        <div class="snowflake lumihiutale6">❅</div>
+        <div class="snowflake lumihiutale7">❅</div>
+        <div class="snowflake lumihiutale8">❅</div>
+        <div class="snowflake lumihiutale9">❆</div>
+    </div>
+<?php
+if(!isset($_SESSION["userid"])){
+    header("Location: logout.php");
+    exit;
+}
+?>
+</body>
+</html>form method="post" action="transactions.php">
       <button type="submit" name="transactions">Palaa pää sivulle</button>
     </form>
   </div>
