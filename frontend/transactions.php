@@ -4,7 +4,38 @@
 session_start();
 include '../backend/db.php'; 
 
+if (!isset($_SESSION['userid']) && isset($_COOKIE['remember_token'])) {
+
+    $token = $_COOKIE['remember_token'];
+
+    $stmt = $conn->prepare("SELECT userid, name, email, status FROM users WHERE remember_token = ?");
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows === 1) {
+
+        $stmt->bind_result($id, $name, $email, $status);
+        $stmt->fetch();
+
+        $_SESSION['userid'] = $id;
+        $_SESSION['name'] = $name;
+        $_SESSION['email'] = $email;
+        $_SESSION['status'] = $status;
+
+        session_regenerate_id(true);
+    }
+
+    $stmt->close();
+}
+
+if (!isset($_SESSION['userid'])) {
+    header("Location: login.php");
+    exit;
+}
+
 $userid = $_SESSION["userid"];
+
 //hakee tulot     
 $stmt = $conn->prepare("SELECT SUM(tulo) FROM tapahtumat WHERE userid = ?");
 $stmt->bind_param("i", $userid);
@@ -79,6 +110,8 @@ if (isset($_POST['lisaa_tapahtuma'])) {
 }
 
 ?>
+<body>
+
 <head>
 <title>Transactions</title>
 <link rel="stylesheet" href="logintyyli.css">

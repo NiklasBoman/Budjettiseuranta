@@ -35,6 +35,24 @@ $stmt->bind_result($kayttajaID, $nimi, $gmail_db, $hash, $status);
             $_SESSION['email'] = $gmail_db;
             $_SESSION['status'] = $status; // Tallennetaan status sessioon
 
+            if (isset($_POST['remember_me'])) {
+
+    // Luodaan satunnainen token (64 merkkiä)
+    $token = bin2hex(random_bytes(32));
+
+    // Tallennetaan token tietokantaan käyttäjälle
+    $stmt2 = $conn->prepare("UPDATE users SET remember_token = ? WHERE userid = ?");
+    $stmt2->bind_param("si", $token, $kayttajaID);
+    $stmt2->execute();
+    $stmt2->close();
+
+    // Tallennetaan token evästeeseen 30 päiväksi
+    setcookie("remember_token", $token, time() + (86400 * 30), "/", "", false, true);
+} else {
+    // Poista eväste jos ei valittu
+    setcookie("remember_token", "", time() - 3600, "/", "", false, true);
+}
+
             // Ohjataan käyttäjä roolin perusteella oikealle sivulle
             if ($status === 'deleted') {
                 print("❌ Tilisi on poistettu. Ota yhteyttä tukeen.");
