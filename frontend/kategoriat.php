@@ -71,7 +71,7 @@ $kategoriakulut = [];
 $stmt = $conn->prepare("
     SELECT kategoria, SUM(Menot) AS summa 
     FROM tapahtumat 
-    WHERE userid = ? 
+    WHERE userid = ? AND Menot > 0
     GROUP BY kategoria
 ");
 $stmt->bind_param("i", $userid);
