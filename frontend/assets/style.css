@@ -15,7 +15,7 @@ body.content{
     flex-direction: column;
     justify-content: flex-start;    
     align-items: center;
-    font-family: 'Verdana';;
+    font-family: Verdana;
     background-color: #f8f9fa;; 
     background: linear-gradient(rgb(115 114 237 / 66%), rgb(255 166 166 / 53%));
     height: 110vh;
@@ -192,9 +192,10 @@ h1 {
 }
 p.trancation-teksti {
     text-align: center;
-    color: #555;
+    color: #000000;
     font-weight: 600;
     z-index: 2;
+    font-family: Verdana;
 }
 .isocontainer {
     width: 80%;
