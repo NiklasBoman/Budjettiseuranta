@@ -90,6 +90,7 @@ if (isset($_POST['lisaa_tapahtuma'])) {
 <link rel="stylesheet" href="../frontend/assets/style.css">
 </head>
 <body class="content">
+    <img src="../frontend/assets/cob.png" alt="cob" class="cob">
     <?php require_once("includes/header.php"); //sisältää footer, header, css, bootstrap; ?>
 <div class="teksticontainer">
 <h1>Budjettiseuranta</h1>
