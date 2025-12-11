@@ -181,35 +181,6 @@ if(!isset($_SESSION["userid"])){
     exit;
 }
 ?>
-</body>
-</html>form method="post" action="transactions.php">
-      <button type="submit" name="transactions">Palaa pää sivulle</button>
-    </form>
-  </div>
-</div>
 
-
-
-
-
-
-
-   <div class="lumi">
-        <div class="snowflake lumihiutale1">❅</div>
-        <div class="snowflake lumihiutale2">❆</div>
-        <div class="snowflake lumihiutale3">❅</div>
-        <div class="snowflake lumihiutale4">❅</div>
-        <div class="snowflake lumihiutale5">❆</div>
-        <div class="snowflake lumihiutale6">❅</div>
-        <div class="snowflake lumihiutale7">❅</div>
-        <div class="snowflake lumihiutale8">❅</div>
-        <div class="snowflake lumihiutale9">❆</div>
-    </div>
-<?php
-if(!isset($_SESSION["userid"])){
-    header("Location: logout.php");
-    exit;
-}
-?>
 </body>
 </html>
