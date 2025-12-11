@@ -113,6 +113,7 @@ $stmt->close();
     <?php require_once("includes/header.php"); //sisältää footer, header, css, bootstrap; ?>
 <div class="teksticontainer">
 <h1>Budjettiseuranta</h1>
+<p class="trancation-teksti"> Seuraa talouttasi talven aikana</p>
 <p class="trancation-teksti"></p>
 </div>
 <div class="isocontainer">
