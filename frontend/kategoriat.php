@@ -131,16 +131,20 @@ $stmt->close();
 </div>
 <div class="container2">
   <div class="vasen-container">
-    <h2>Kategoriat</h2>
+<h2>Tulot</h2>
 <?php foreach ($tulokategoriat as $kategoria => $summa): 
+    if ($kategoria !== "Tulot") continue;  
     $prosentti = $tulot > 0 ? round(($summa / $tulot) * 100, 1) : 0;
 ?>
     <li><?= htmlspecialchars($kategoria) ?>: 
-        <?= number_format($summa, 2, ',', ' ') ?> € (<?= $prosentti ?>%)
+        <?= number_format($summa, 2, ',', ' ') ?> € 
     </li>
 <?php endforeach; ?>
+
+
 <h2>Menot kategorioittain</h2>
 <?php foreach ($kategoriakulut as $kategoria => $summa): 
+    if ($kategoria === "Tulot") continue; 
     $prosentti = $menot > 0 ? round(($summa / $menot) * 100, 1) : 0;
 ?>
     <li><?= htmlspecialchars($kategoria) ?>: 
