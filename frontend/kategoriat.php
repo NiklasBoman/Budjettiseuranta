@@ -93,7 +93,21 @@ while ($row = $result->fetch_assoc()) {
     $kategoriakulut[$row['kategoria']] = $row['summa'];
 }
 $stmt->close();
+$tulokategoriat = [];
+$stmt = $conn->prepare("
+    SELECT kategoria, SUM(tulo) AS summa 
+    FROM tapahtumat 
+    WHERE userid = ? 
+    GROUP BY kategoria
+");
+$stmt->bind_param("i", $userid);
+$stmt->execute();
+$result = $stmt->get_result();
 
+while ($row = $result->fetch_assoc()) {
+    $tulokategoriat[$row['kategoria']] = $row['summa'];
+}
+$stmt->close();
 ?>
 <head>
 <title>Kategoriat</title>
