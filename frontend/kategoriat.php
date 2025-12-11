@@ -65,17 +65,6 @@ if (isset($_POST['lisaa_tapahtuma'])) {
         $menot = $summa;
     }
 
-    if ($kuvaus && ($tulo > 0 || $menot > 0)) {
-        $stmt = $conn->prepare("INSERT INTO tapahtumat (userid, kuvaus, tulo, Menot, paivamaara, kategoria) VALUES (?, ?, ?, ?, ?, ?)"); //Lisätään tapahtuma tietokantaan 
-        $stmt->bind_param("isddss", $userid, $kuvaus, $tulo, $menot, $paivamaara, $kategoria); 
-        $stmt->execute();
-        $stmt->close();
-
-        header("Location: " . $_SERVER['PHP_SELF']); // Päivitä sivu
-        exit;
-    } else {
-        $error_message = "Täytä kuvaus ja summa."; //Virheilmoitus jos kenttiä puuttuu
-    }
 }
 // Hakee menot kategorioittain
 $kategoriakulut = [];
