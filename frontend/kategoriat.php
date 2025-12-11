@@ -139,6 +139,14 @@ $stmt->close();
         <?= number_format($summa, 2, ',', ' ') ?> € (<?= $prosentti ?>%)
     </li>
 <?php endforeach; ?>
+<h2>Menot kategorioittain</h2>
+<?php foreach ($kategoriakulut as $kategoria => $summa): 
+    $prosentti = $menot > 0 ? round(($summa / $menot) * 100, 1) : 0;
+?>
+    <li><?= htmlspecialchars($kategoria) ?>: 
+        <?= number_format($summa, 2, ',', ' ') ?> € (<?= $prosentti ?>%)
+    </li>
+<?php endforeach; ?>
 
     <!-- tähän vasemmalle esim. tapahtumat -->
   </div>
