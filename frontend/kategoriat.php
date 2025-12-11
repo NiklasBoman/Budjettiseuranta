@@ -131,27 +131,24 @@ $stmt->close();
 </div>
 <div class="container2">
   <div class="vasen-container">
-<h2>Tulot</h2>
-<?php foreach ($tulokategoriat as $kategoria => $summa): 
-    if ($kategoria !== "Tulot") continue;  
-    $prosentti = $tulot > 0 ? round(($summa / $tulot) * 100, 1) : 0;
-?>
-    <li><?= htmlspecialchars($kategoria) ?>: 
-        <?= number_format($summa, 2, ',', ' ') ?> € 
-    </li>
-<?php endforeach; ?>
+    <h2>Tulot</h2>
+    <p>Kokonaistulot: <?= number_format($tulot, 2, ',', ' ') ?> €</p>
 
-
-<h2>Menot kategorioittain</h2>
-<?php foreach ($kategoriakulut as $kategoria => $summa): 
-    if ($kategoria === "Tulot") continue; 
-    $prosentti = $menot > 0 ? round(($summa / $menot) * 100, 1) : 0;
-?>
-    <li><?= htmlspecialchars($kategoria) ?>: 
-        <?= number_format($summa, 2, ',', ' ') ?> € (<?= $prosentti ?>%)
-    </li>
-<?php endforeach; ?>
-
+    <h2>Menot kategoriittain</h2>
+    <?php foreach ($kategoriakulut as $kategoria => $summa): 
+        $prosentti = $menot > 0 ? round(($summa / $menot) * 100, 1) : 0;
+    ?>
+        <p><?= htmlspecialchars($kategoria) ?>: <?= number_format($summa, 2, ',', ' ') ?> €</p>
+        <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar"
+                 style="width: <?= $prosentti ?>%;"
+                 aria-valuenow="<?= $prosentti ?>" aria-valuemin="0" aria-valuemax="100">
+                <?= $prosentti ?>%
+            </div>
+        </div>
+    <?php endforeach; ?>
+  </div>
+        <div class="oikea-container">
     <!-- tähän vasemmalle esim. tapahtumat -->
   </div>
       <form method="post" action="transactions.php">
