@@ -8,7 +8,7 @@
         echo '<a href="../frontend/login.php" class="header-btn">Kirjaudu sisään</a>';
     } else {
         echo '<div style="display: flex; justify-content: space-between;">
-                <p style="margin:0px;padding:10px;color: #a4ddff;text-shadow: 0px 0px 7px black;" 
+                <p style="margin:0px;padding:10px;color: #ffffffff;text-shadow: 0px 0px 7px black;" 
                    class="header-username">
                     Kirjautunut '.$_SESSION["name"].'
                 </p>
