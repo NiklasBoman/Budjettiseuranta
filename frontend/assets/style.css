@@ -58,7 +58,6 @@ body.content{
 .jolly-alarm {
     max-width: 45px;
     margin-inline: 15px;
-
 } 
     .vasen-paneeli{
         flex: 1;
@@ -392,6 +391,7 @@ input[type="text"] {
 .logo{
     max-width: 75px;
     margin-inline: 15px;
+    border-radius: 15px;
 }
 .header-btn{
     margin-top: 0;
